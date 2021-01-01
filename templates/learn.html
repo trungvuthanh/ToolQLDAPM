@@ -256,6 +256,7 @@
     </div>
     <script>
         var allQuestions = []
+        var questionFalses = []
         var indexQuestion = 0
         var numTrue = 0
         var numFalse = 0
@@ -327,6 +328,13 @@
                                 }
                             })
                             updateScore("false")
+                            for (var i = 0; i < answers.length; i++) {
+                                if (answers[i].isCorrect == "true") {
+                                    answer = answers[i].answer
+                                    break
+                                }
+                            }
+                            questionFalses.push({"question": allQuestions[indexQuestion - 1].question, "answer": answer})
                             if (document.getElementById("dn").checked) {
                                 renderQuestion()
                             }
@@ -334,6 +342,11 @@
                     }
                 })
             } else {
+                stringAlert = "Các câu sai\n"
+                for (var i = 0; i < questionFalses.length; i++) {
+                    stringAlert += "Câu " + (i + 1) + ": " + questionFalses[i].question + "\nĐáp án:" + questionFalses[i].answer + "\n"
+                }
+                alert(stringAlert)
                 location.href = "/"
             }
         }
