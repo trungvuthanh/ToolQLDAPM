@@ -295,6 +295,20 @@
                             renderAnswer(answers[3].answer, answers[3].isCorrect) +
                         '</div>'
                 }
+                else if (allQuestions[indexQuestion].answer.length == 6) {
+                    document.getElementById("answers").innerHTML += 
+                        '<div class="rowa">' +
+                            renderAnswer(answers[4].answer, answers[4].isCorrect) +
+                            renderAnswer(answers[5].answer, answers[5].isCorrect) +
+                        '</div>'
+                }
+                else if (allQuestions[indexQuestion].answer.length == 8) {
+                    document.getElementById("answers").innerHTML += 
+                        '<div class="rowa">' +
+                            renderAnswer(answers[6].answer, answers[6].isCorrect) +
+                            renderAnswer(answers[7].answer, answers[7].isCorrect) +
+                        '</div>'
+                }
                 indexQuestion++;
                 document.querySelectorAll(".answer").forEach(e => {
                     e.onclick = function() {
